@@ -1,5 +1,5 @@
 const colorSection = document.getElementById("color-section");
-
+let colorsArr = [];
 let colorInp = document.getElementById("color-picker");
 let colorMode = document.getElementById("color-mode");
 
@@ -10,5 +10,7 @@ document.getElementById("get-scheme").addEventListener("click", function () {
     `https://www.thecolorapi.com/scheme?hex=${colorInp}&mode=${colorMode}&count=5`
   )
     .then((res) => res.json())
-    .then((data) => console.log(data));
+    .then((data) => {
+      console.log(data);
+    });
 });
