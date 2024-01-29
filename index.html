@@ -11,11 +11,21 @@
       <header>
         <input type="color" id="color-picker" />
         <select id="color-mode">
-          ColorMode
+          <option value="monochrome">Monochrome</option>
+                  <option value="monochrome-dark">Monochrome-dark</option>
+                  <option value="monochrome-light">Monochrome-light</option>
+                  <option value="analogic">Analogic</option>
+                  <option value="complement">Complement</option>
+                  <option value="analogic-complement">Analogic-complement</option>
+                  <option value="triad">Triad</option>
+                  <option value="quad">Quad</option>
         </select>
-        <button id="btn">Get Color Scheme</button>
+        <button id="get-scheme">Get Color Scheme</button>
       </header>
       <main>
+       <div class="color-section">
+        <div class="color-card"></div>
+       </div>
         <div class="notify">Copied to clipboard</div>
       </main>
     </div>
