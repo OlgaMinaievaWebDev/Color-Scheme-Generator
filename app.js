@@ -1,9 +1,8 @@
 const colorSection = document.getElementById("color-section");
-let colorsArr = [];
 let colorInp = document.getElementById("color-picker");
 let colorMode = document.getElementById("color-mode");
 
-document.getElementById("get-scheme").addEventListener("click", function () {
+function getColors() {
   colorInp = colorInp.value.substr(-6);
   colorMode = colorMode.value;
   fetch(
@@ -11,6 +10,16 @@ document.getElementById("get-scheme").addEventListener("click", function () {
   )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      let html = "";
+      for (const color of data.colors) {
+        html += `
+            <div class="color-value">
+              <img class="color-img" src="${color.image.bare}">
+              <h3>${color.hex.value}</h3>
+            </div>`;
+      }
+      colorSection.innerHTML = html;
     });
-});
+}
+
+document.getElementById("get-scheme").addEventListener("click", getColors);
